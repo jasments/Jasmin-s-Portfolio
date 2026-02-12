@@ -14,9 +14,7 @@ document.addEventListener("click", (e) => {
 });
 
 // Reveal-on-scroll (subtle, like a polished portfolio)
-const revealTargets = document.querySelectorAll(
-  ".section, .work-card, .frame"
-);
+const revealTargets = document.querySelectorAll(".section, .work-card, .frame");
 
 revealTargets.forEach((el) => {
   el.style.opacity = "0";
@@ -25,7 +23,7 @@ revealTargets.forEach((el) => {
   el.style.willChange = "opacity, transform";
 });
 
-const io = new IntersectionObserver(J
+const io = new IntersectionObserver(
   (entries, obs) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
