@@ -27,6 +27,77 @@ a{ color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 64px 24px 120px;
 }
+.stacked-portfolio{
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 28px;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.stacked-portfolio__text .eyebrow{
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 10px;
+  opacity: .7;
+}
+
+.stacked-portfolio__text h2{
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.stacked-portfolio__text .sub{
+  margin: 0;
+  line-height: 1.6;
+  opacity: .8;
+  max-width: 42ch;
+}
+
+/* The stack area */
+.stacked-portfolio__stack{
+  position: relative;
+  min-height: 420px;
+}
+
+/* shared image styling */
+.shot{
+  position: absolute;
+  width: 52%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+  background: #fff;
+}
+
+/* tweak these to taste */
+.shot--1{ left: 0;    top: 40px;  transform: rotate(-4deg); z-index: 1; }
+.shot--2{ left: 22%;  top: 0;     transform: rotate(2deg);  z-index: 3; }
+.shot--3{ left: 42%;  top: 90px;  transform: rotate(-2deg); z-index: 2; }
+.shot--4{ left: 18%;  top: 190px; transform: rotate(5deg);  z-index: 4; }
+
+/* Mobile */
+@media (max-width: 900px){
+  .stacked-portfolio{
+    grid-template-columns: 1fr;
+  }
+  .stacked-portfolio__stack{
+    min-height: 520px;
+  }
+  .shot{
+    width: 70%;
+  }
+  .shot--1{ left: 0;   top: 70px; }
+  .shot--2{ left: 18%; top: 0; }
+  .shot--3{ left: 10%; top: 220px; }
+  .shot--4{ left: 28%; top: 320px; }
+}
+
 
 .section{
   padding: 44px 0;
@@ -284,3 +355,176 @@ a{ color: inherit; text-decoration: none; }
     font-size: clamp(40px, 11vw, 56px);
   }
 }
+
+/* Card hover movement */
+.stack-card {
+  position: relative;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.stack-card:hover {
+  transform: translateY(-10px) rotate(-0.5deg) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* Make stacked layers animate (if you have them) */
+.stack-card .stack-layer {
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+/* Fan the layers out on hover */
+.stack-card:hover .stack-layer:nth-child(1) { transform: translate(10px, -10px); }
+.stack-card:hover .stack-layer:nth-child(2) { transform: translate(6px, -6px); }
+.stack-card:hover .stack-layer:nth-child(3) { transform: translate(2px, -2px); }
+boatcharity.png
+
+.email-tiles{
+  position: relative;
+  width: min(560px, 92vw);
+  height: 560px;
+  margin-left: auto;
+  perspective: 900px;
+}
+
+.tile{
+  position: absolute;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  width: 320px;
+  height: 460px;
+
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,.14);
+
+  transform-style: preserve-3d;
+  transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+}
+
+.tile img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Layout positions — tweak these to match your current stack */
+.t1{ right: 210px; top: 60px; transform: rotate(-12deg); z-index: 1; }
+.t2{ right: 140px; top: 20px; transform: rotate(-2deg);  z-index: 3; }
+.t3{ right: 70px;  top: 50px; transform: rotate(8deg);   z-index: 2; }
+.t4{ right: 0px;   top: 80px; transform: rotate(16deg);  z-index: 0; }
+
+/* Group hover: subtle “stack comes alive” */
+.email-tiles:hover .t1{ transform: rotate(-12deg) translate(-6px, -4px); }
+.email-tiles:hover .t2{ transform: rotate(-2deg)  translate(0px, -10px); }
+.email-tiles:hover .t3{ transform: rotate(8deg)   translate(8px, -2px); }
+.email-tiles:hover .t4{ transform: rotate(16deg)  translate(14px, 2px); }
+
+/* Individual hover: lift the one you're on */
+.tile:hover{
+  transform: translateY(-12px) scale(1.03) rotate(0deg);
+  box-shadow: 0 26px 80px rgba(0,0,0,.20);
+  filter: saturate(1.03);
+  z-index: 9; /* bring hovered tile to front */
+}
+
+/* Keyboard accessibility */
+.tile:focus-visible{
+  outline: 3px solid rgba(0,0,0,.35);
+  outline-offset: 6px;
+}
+
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.modal.is-open{ display: block; }
+
+.modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.50);
+}
+
+.modal__panel{
+  position: relative;
+  width: min(1100px, 94vw);
+  height: min(780px, 88vh);
+  margin: 5vh auto 0;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 120px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+}
+
+.modal__close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(0,0,0,.08);
+  z-index: 2;
+}
+
+.modal__img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f6f6f6;
+}
+<script>
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+
+  function openModal(src){
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    modalImg.src = src;
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+  }
+
+  document.querySelectorAll('.email-tiles .tile').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.full));
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target.matches('[data-close]')) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+</script>
+.email-hero{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.email-tiles{
+  position: relative;   /* ✅ this is the key */
+  width: min(560px, 92vw);
+  height: 560px;
+  overflow: visible;    /* or hidden if you want clipping */
+  margin-left: auto;
+}
+
