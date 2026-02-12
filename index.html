@@ -53,9 +53,8 @@
 
       <div class="about__text">
         <p>
-          “I love building with code - combining creativity and logic to design meaningful digital experiences. 
-          As I grow my skills in Python and HTML email, I’m excited by how technology can be both beautiful and strategic, 
-          shaping engaging marketing experiences that truly connect with people.”  
+            “I love building with code - combining creativity and logic to design meaningful digital experiences. As I grow my skills in Python and HTML email, I’m excited by how technology can be both beautiful and strategic, shaping engaging marketing experiences that truly connect with people.”
+ 
         </p>
       </div>
     </section>
@@ -68,45 +67,89 @@
       </h2>
 
       <div class="work-grid">
-        <a class="work-card" href="https://jasments.github.io/Jasmins-CV-new/">
+       <a class="work-card" href="https://jasments.github.io/Jasmins-CV-new/" target="_blank" rel="noopener">
+
           <div class="work-card__img">
-            <img src="Jasmincv.png" alt="CV Website Preview">
+            <img src="Jasmincv.png" alt="Mock Website preview">
           </div>
           <div class="work-card__meta">
             <span class="work-card__num">01</span>
             <div>
-              <h3>CV Website Preview</h3>
-              <p>PROJECT JavaScript, CSS & HTML</p>
+              <h3>Mock Website preview</h3>
+              <p>CV Website</p>
             </div>
           </div>
         </a>
 
         <a class="work-card" href=" https://jasments.github.io/ceedar-website-mock/">
           <div class="work-card__img">
-            <img src="ceeder_mock.png" alt="COMPANY Mock Design Preview">
+            <img src="ceeder_mock.png" alt="Project 2 preview">
           </div>
           <div class="work-card__meta">
             <span class="work-card__num">02</span>
             <div>
-              <h3>COMPANY Mock Design Preview</h3>
-              <p>PROJECT JavaScript, CSS & HTML</p>
+              <h3>Mock Website preview</h3>
+              <p>COMPANY Mock Design</p>
             </div>
           </div>
         </a>
 
-        <a class="work-card work-card--wide" href="https://jasments.github.io/Window-Cleaning-Website/">
+        <a class="work-card work-card--wide"href="https://jasments.github.io/Window-Cleaning-Website/">
           <div class="work-card__img">
-            <img src="windowcleaning.png" alt="Window Cleaning Website Preview">
+            <img src="windowcleaning.png" alt="Project 3 preview">
           </div>
           <div class="work-card__meta">
             <span class="work-card__num">03</span>
             <div>
-              <h3>Window Cleaning Website Preview</h3>
-              <p>PROJECT JavaScript, CSS & HTML</p>
+              <h3>Mock Website preview</h3>
+              <p>Window Cleaning Website</p>
             </div>
           </div>
         </a>
       </div>
+
+<section class="stacked-portfolio">
+  <div class="stacked-portfolio__text">
+    <p class="eyebrow">Email Portfolio</p>
+    <h2>Seasonal Campaign Emails</h2>
+    <p class="sub">
+      A small selection of HTML email builds—focused on layout hierarchy, promo clarity, and responsive structure. These email designs are conceptual projects created to demonstrate layout, coding and marketing skills.
+    </p>
+  </div>
+
+<div class="email-tiles">
+  <button class="tile t1" data-full="email.png" aria-label="Open email preview 1">
+    <img src="email.png" alt="Email preview 1">
+  </button>
+
+  <button class="tile t2" data-full="springemail.png" aria-label="Open email preview 2">
+    <img src="springemail.png" alt="Email preview 2">
+  </button>
+
+  <button class="tile t3" data-full="charityemail.png" aria-label="Open email preview 3">
+    <img src="charityemail.png" alt="Email preview 3">
+  </button>
+
+  <button class="tile t4" data-full="charityboat.png" aria-label="Open email preview 4">
+    <img src="charityboat.png" alt="Email preview 4">
+  </button>
+</div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal" id="imgModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close></div>
+
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Email preview">
+    <button class="modal__close" data-close aria-label="Close">✕</button>
+    <img class="modal__img" id="modalImg" alt="Full email preview">
+  </div>
+</div>
+
+
+
+
     </section>
 
     <!-- CONTACT -->
@@ -124,5 +167,6 @@
   </main>
 
   <script src="app.js"></script>
+
 </body>
 </html>
