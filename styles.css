@@ -394,8 +394,9 @@ boatcharity.png
   padding: 0;
   cursor: pointer;
 
-  width: 320px;
-  height: 460px;
+  width: 60vw;
+  max-width: 320px;
+  aspect-ratio: 320 / 460;
 
   border-radius: 18px;
   overflow: hidden;
