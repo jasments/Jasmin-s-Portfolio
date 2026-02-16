@@ -1,4 +1,4 @@
-// Smooth scroll for links like #contact
+// Smooth scroll 
 document.addEventListener("click", (e) => {
   const link = e.target.closest("a[data-scroll], a[href^='#']");
   if (!link) return;
@@ -13,7 +13,7 @@ document.addEventListener("click", (e) => {
   target.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-// Reveal-on-scroll (subtle, like a polished portfolio)
+// Reveal-on-scroll 
 const revealTargets = document.querySelectorAll(".section, .work-card, .frame");
 
 revealTargets.forEach((el) => {
